@@ -1,4 +1,4 @@
-import React from 'react';
+ import React from 'react';
 
 import { render } from 'react-dom';
 
@@ -10,9 +10,11 @@ import App from './components/App';
 import Single from './components/Single';
 import PhotoGrid from './components/PhotoGrid';
 
+import Instafeed from 'instafeed.js';
+
 // import Raven for Sentry error handling
 import Raven from 'raven-js';
-import { sentry_url, logException } from './data/config'
+import { sentry_url, logException } from './data/config';
 
 Raven.config(sentry_url).install();
 
@@ -24,7 +26,14 @@ Raven.config(sentry_url).install();
 // import react router deps
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import { Provider } from 'react-redux';
-import store, { history } from './store'
+import store, { history } from './store';
+
+var feed = new Instafeed({
+			  get: 'user',
+			  userId: 4357624, // Ex: 1374300081
+			  accessToken: 'f128ca3677b44a0a8dc11db1b138d7f4'
+			});
+			feed.run();
 
 render(
 	<Provider store={store}>
