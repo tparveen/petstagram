@@ -1,4 +1,4 @@
- import React from 'react';
+import React from 'react';
 
 import { render } from 'react-dom';
 
@@ -28,12 +28,16 @@ import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import { Provider } from 'react-redux';
 import store, { history } from './store';
 
-var feed = new Instafeed({
-			  get: 'user',
-			  userId: 4357624, // Ex: 1374300081
-			  accessToken: 'f128ca3677b44a0a8dc11db1b138d7f4'
-			});
-			feed.run();
+
+
+// renders images with specified tags
+// var feed = new Instafeed({
+//         get: 'tagged',
+//         tagName: 'awesome',
+//         clientId: 'YOUR_CLIENT_ID',
+//         template: '<a href="{{link}}"><img src="{{image}}" />{{location}}</a>'
+//     });
+//     feed.run();
 
 render(
 	<Provider store={store}>

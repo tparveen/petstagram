@@ -6,7 +6,10 @@ import Main from './Main';
 function mapStatetoProps(state) {
 	return {
 		posts: state.posts,
-		comments: state.comments
+		comments: state.comments,
+		// userId: state.userId,
+		// clientId: state.clientId,
+		// accessToken: state.accessToken
 	}
 }
 
