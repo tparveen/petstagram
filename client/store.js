@@ -7,15 +7,11 @@ import rootReducer from './reducers/index';
 
 import comments from './data/comments';
 import posts from './data/posts';
-//import {userId, clientId, accessToken} from './data/insta';
 
 // create an object for the default data
 const defaultState = {
 	posts,
-	comments,
-	// userId,
-	// clientId,
-	// accessToken
+	comments
 };
 
 const enhancers = compose(

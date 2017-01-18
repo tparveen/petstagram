@@ -10,8 +10,6 @@ import App from './components/App';
 import Single from './components/Single';
 import PhotoGrid from './components/PhotoGrid';
 
-import Instafeed from 'instafeed.js';
-
 // import Raven for Sentry error handling
 import Raven from 'raven-js';
 import { sentry_url, logException } from './data/config';
@@ -27,17 +25,6 @@ Raven.config(sentry_url).install();
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import { Provider } from 'react-redux';
 import store, { history } from './store';
-
-
-
-// renders images with specified tags
-// var feed = new Instafeed({
-//         get: 'tagged',
-//         tagName: 'awesome',
-//         clientId: 'YOUR_CLIENT_ID',
-//         template: '<a href="{{link}}"><img src="{{image}}" />{{location}}</a>'
-//     });
-//     feed.run();
 
 render(
 	<Provider store={store}>
