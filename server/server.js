@@ -8,7 +8,16 @@ var bodyParser = require('body-parser');
 var http = require('http');
 var cors = require('cors');
 var InstagramStrategy = require('passport-instagram').Strategy;
+var Instafeed = require("instafeed.js");
+var userFeed = new Instafeed({
+  get: 'user',
+  userId: '4357624',
+  accessToken: '4357624.d09a4fd.11ab31efa3fd428eb1bb19fab22a5a40'
+});
+userFeed.run();
 
+userFeed.run();
+console.log(userFeed);
 var app = express();
 app.use(cors());
 app.use(express.static( './build'));
@@ -37,7 +46,7 @@ passport.use(new InstagramStrategy({
 ));
 
 app.get('/', function(req, res){
-  console.log('Render Something')
+  console.log('Render Something', userFeed)
 });
 
 app.get('/auth/instagram',
