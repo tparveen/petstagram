@@ -49,6 +49,11 @@ app.get('/', function(req, res){
   console.log('Render Something', userFeed)
 });
 
+app.get('/hello', function(req, res){
+  console.log("Testing hello");
+  res.json({message: "Hello, world!"});
+});
+
 app.get('/auth/instagram',
   passport.authenticate('instagram'));
 
