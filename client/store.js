@@ -2,6 +2,8 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { browserHistory } from 'react-router';
 
+import * as actions from './actions/actionCreators';
+
 import thunk from 'redux-thunk'; 
 
 // import the root reducer
@@ -17,10 +19,12 @@ const defaultState = {
 };
 
 const enhancers = compose(
+	applyMiddleware(thunk),
   window.devToolsExtension ? window.devToolsExtension() : f => f
 );
 
-const store = createStore(rootReducer, defaultState, enhancers, applyMiddleware(thunk));
+const store = createStore(rootReducer, defaultState, enhancers);
+//const store = createStore(rootReducer, applyMiddleware(thunk), defaultState, enhancers);
 
 export const history = syncHistoryWithStore(browserHistory, store);
 
@@ -32,7 +36,7 @@ if(module.hot) {
 	});
 };
 
-//store.dispatch(actions.GetBasicInfo());
+store.dispatch(actions.fetch_hello());
 export default store;
 
 //export default createStore(reducer, applyMiddleware(thunk));
